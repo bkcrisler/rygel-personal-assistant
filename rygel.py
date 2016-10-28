@@ -1,4 +1,4 @@
-#!/usr/bin/python3.5
+#!/usr/bin/env python3
 
 
 
@@ -21,7 +21,7 @@ def settings_open():
 
 def settings_close(settings_file):
 	settings_file.close()
-	
+
 def settings_init(settings_file):
 
 	## Check settings_file
@@ -34,10 +34,10 @@ def settings_init(settings_file):
 		name_split = re.split(r"=",name_match.group(0))
 		name = name_split[1]
 		print("Hello, " + name)
-   
+
 	else:
 		print("No settings found...")
-   
+
 	while(name == ""):
 		name = input("What can I call you? ")
 
@@ -47,7 +47,7 @@ def settings_init(settings_file):
 			print("Hello, " + name)
 			settings_file.seek(0,0)
 			settings_file.write("name=" + name)
-	
+
 	return {'name': name,}
 
 
@@ -57,12 +57,12 @@ def main():
 	settings_config = settings_open()
 	session_vars = settings_init(settings_config)
 	settings_config.close()
-	
-	
+
+
 	while True:
 
 		# Process Command
-   
+
 		# Get Input
 		command = input("---?> ")
 
@@ -72,14 +72,8 @@ def main():
 		else:
 			print("Unknown Command, please try again.")
 
-	
-       
-   
+
+
+
 if __name__ == '__main__':
 	main()
-   
-
-
-   
-
-
